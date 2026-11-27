@@ -4,7 +4,7 @@ import sys
 if len(sys.argv) == 2:
 	filename = sys.argv[1]
 else:
-    print("Usage: python script.py <filename>")
+    print("Usage: python script.py <filename>",file=sys.stderr)
     sys.exit(1)
 
 with open(filename, 'rb') as f:

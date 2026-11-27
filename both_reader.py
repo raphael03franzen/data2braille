@@ -6,7 +6,7 @@ if len(sys.argv) == 2 and sys.argv[1] != "-":
 else:
     filename = "/dev/stdin"
 
-print(f"Opening {filename}")
+print(f"Opening {filename}",file=sys.stderr)
 try:
     with open(filename, 'rb') as f:
         while True:
@@ -18,8 +18,8 @@ try:
             print(f'{char}', end="")
     print()
 except FileNotFoundError:
-    print(f"Error: The file '{filename}' does not exist.")
+    print(f"Error: The file '{filename}' does not exist.",file=sys.stderr)
     sys.exit(1)
 except Exception as e:
-    print(f"An error occurred: {e}")
+    print(f"An error occurred: {e}",file=sys.stderr)
     sys.exit(1)
